@@ -1,11 +1,11 @@
 {
 	"name": "morrow/project-docs",
 	"type": "project",
-    "description": "The documentation for the Morrow PHP framework",
+    "description": "The documentation for the Morrow PHP framework.",
     "license": "LGPL-3.0",
 	"require": {
 		"php": ">=5.3",
-        "ministrygmbh/morrow-framework": "dev-master",
+        "morrow/core": "dev-master",
         "mcsodbrenner/serpent": "2.0.*",
 		"michelf/php-markdown": "1.3.*"
 	},
