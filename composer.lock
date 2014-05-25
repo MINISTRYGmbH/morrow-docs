@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8783349866ec242fe29dabc6da66b850",
+    "hash": "fecc775a996d0d43c87a369037e02382",
     "packages": [
         {
             "name": "mcsodbrenner/serpent",
@@ -92,17 +92,17 @@
             "time": "2013-04-11 18:53:11"
         },
         {
-            "name": "ministrygmbh/morrow-framework",
+            "name": "morrow/core",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/MINISTRYGmbH/morrow-framework.git",
-                "reference": "fcb9c131431b23255b6f86bcebf3f0608f0d7e60"
+                "url": "https://github.com/MINISTRYGmbH/morrow-core.git",
+                "reference": "56905d360b6db80bb216bccb41fbbb46d27af6dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-framework/zipball/fcb9c131431b23255b6f86bcebf3f0608f0d7e60",
-                "reference": "fcb9c131431b23255b6f86bcebf3f0608f0d7e60",
+                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/56905d360b6db80bb216bccb41fbbb46d27af6dc",
+                "reference": "56905d360b6db80bb216bccb41fbbb46d27af6dc",
                 "shasum": ""
             },
             "require": {
@@ -118,12 +118,12 @@
             "license": [
                 "LGPL-3.0"
             ],
-            "description": "A PHP framework for efficient web development",
+            "description": "Contains the core files of the Morrow framework that live in the vendor folder.",
             "keywords": [
                 "framework",
                 "php"
             ],
-            "time": "2014-05-23 15:47:09"
+            "time": "2014-05-25 15:14:54"
         }
     ],
     "packages-dev": [
@@ -134,7 +134,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ministrygmbh/morrow-framework": 20
+        "morrow/core": 20
     },
     "platform": {
         "php": ">=5.3"
