@@ -28,12 +28,12 @@ class DefaultController extends Factory {
 		$classes_root = realpath('../../main/vendor') . '/';
 
 		// get all pages
-		$pages = file_get_contents($classes_root . 'ministrygmbh/morrow-framework/docs/index.nav');
+		$pages = file_get_contents($classes_root . 'morrow/core/docs/index.nav');
 		preg_match_all('|(?P<id>\w+)\s+(?P<title>.+)|', $pages, $pages, PREG_SET_ORDER);
 		$this->view->setContent('pages', $pages);
 
 		// get all classes
-		$classes = $this->_scandir_recursive($classes_root . 'ministrygmbh/morrow-framework/src/');
+		$classes = $this->_scandir_recursive($classes_root . 'morrow/core/src/');
 
 		// strip non php files and create relative paths
 		$new_classes = array();
