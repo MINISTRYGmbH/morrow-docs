@@ -1,5 +1,7 @@
 <?php
 
+use \Morrow\Debug;
+
 class Docblock {
 	protected $_reflection;
 
@@ -53,7 +55,11 @@ class Docblock {
 		// add default properties
 		$default_properties = $this->_reflection->getDefaultProperties();
 		foreach ($default_properties as $name=>$p) {
-			$members[$name]['default'] = $p;
+			if (!$members[$name]['static']) {
+				$members[$name]['default'] = $p;
+			} else {
+				$members[$name]['default'] = null;
+			}
 		}
 
 		return $members;

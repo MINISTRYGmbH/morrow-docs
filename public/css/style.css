@@ -11,6 +11,7 @@ h2 { margin: 40px 0 10px 0; }
 .function-wrapper .type { color: #000; font-size: 80%;}
 pre { line-height: 16px; }
 
-ul.nav ul.nav { margin: 0 0 0 20px; }
-.panel ul.nav>li>a { padding: 0; }
-.panel ul.nav li.active>a { background-color: #eee; font-weight: bold; }
+.panel ul { padding: 0 0 0 20px; }
+.panel ul li { list-style-type: none; }
+.panel ul li.active > a { background-color: #eee; font-weight: bold; }
+.panel p { margin: 0; }

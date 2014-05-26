@@ -49,13 +49,9 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Manual</div>
 				<div class="panel-body">
-					<ul class="nav">
-						~foreach($pages as $node):~
-							<li ~~:raw($page.path) === 'page/' . :escape($node.id) ? 'class="active"' : ''~>
-								<a href="~~:url('page/' . :escape($node.id))~">~~:raw($node.title)~</a>
-							</li>
-						~endforeach~
-					</ul>
+					<?php
+					echo :markdown(file_get_contents('../vendor/morrow/core/docs/sidebar.md'));
+					?>
 				</div>
 			</div>
 
@@ -66,9 +62,8 @@
 					function nested_navi($all_classes) {
 						$returner = '';
 						foreach ($all_classes as $namespace => $classes) {
-							$returner .= '<ul class="nav">';
 							$returner .= $namespace;
-							$returner .= '<ul class="nav">';
+							$returner .= '<ul>';
 
 							foreach ($classes as $class) {
 								$class		= strip_tags($class);
@@ -78,7 +73,6 @@
 								$returner	.= '</li>';
 							}
 							
-							$returner .= '</ul>';
 							$returner .= '</ul>';
 						}
 						return $returner;

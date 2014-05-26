@@ -19,18 +19,9 @@ class DefaultController extends Factory {
 			$this->session->set('show_protected_and_private', $spap);
 		}
 
-		if ($this->session->get('show_protected_and_private') == null) {
-			$this->session->set('show_protected_and_private', '');
-		}
-
-		$this->view->setContent('show_protected_and_private', $this->session->get('show_protected_and_private'));
+		$this->view->setContent('show_protected_and_private', $this->session->get('show_protected_and_private', ''));
 
 		$morrow_root = realpath('../vendor') . '/morrow/core/';
-
-		// get all pages
-		$pages = file_get_contents($morrow_root . 'docs/index.nav');
-		preg_match_all('|(?P<id>\w+)\s+(?P<title>.+)|', $pages, $pages, PREG_SET_ORDER);
-		$this->view->setContent('pages', $pages);
 
 		// get all classes
 		$classes = $this->_scandir_recursive($morrow_root . 'src/');
