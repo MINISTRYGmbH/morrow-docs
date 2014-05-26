@@ -6,9 +6,9 @@ use Morrow\Debug;
 
 class PageController extends DefaultController {
 	public function run() {
-		$classes_root = '../../main/vendor/morrow/core/docs/';
-		$id = $this->input->get('routed.id');
-		$page_content = file_get_contents($classes_root . $id . '.md');
+		$docs_root		= realpath('../vendor') . '/morrow/core/docs/';
+		$id				= $this->input->get('routed.id');
+		$page_content	= file_get_contents($docs_root . $id . '.md');
 		$this->view->setContent('page_content', $page_content);
 	}
 }

@@ -25,15 +25,15 @@ class DefaultController extends Factory {
 
 		$this->view->setContent('show_protected_and_private', $this->session->get('show_protected_and_private'));
 
-		$classes_root = realpath('../../main/vendor') . '/';
+		$morrow_root = realpath('../vendor') . '/morrow/core/';
 
 		// get all pages
-		$pages = file_get_contents($classes_root . 'morrow/core/docs/index.nav');
+		$pages = file_get_contents($morrow_root . 'docs/index.nav');
 		preg_match_all('|(?P<id>\w+)\s+(?P<title>.+)|', $pages, $pages, PREG_SET_ORDER);
 		$this->view->setContent('pages', $pages);
 
 		// get all classes
-		$classes = $this->_scandir_recursive($classes_root . 'morrow/core/src/');
+		$classes = $this->_scandir_recursive($morrow_root . 'src/');
 
 		// strip non php files and create relative paths
 		$new_classes = array();
