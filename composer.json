@@ -1,5 +1,5 @@
 {
-	"name": "morrow/project-docs",
+	"name": "morrow/docs",
 	"type": "project",
     "description": "The documentation for the Morrow PHP framework.",
     "license": "LGPL-3.0",
