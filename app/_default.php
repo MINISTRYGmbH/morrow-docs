@@ -40,7 +40,7 @@ class DefaultController extends Factory {
 
 		// redirect to the first page
 		if (!in_array($this->page->get('alias'), array('page', 'class'))) {
-			$this->url->redirect('page/' . $pages[0]['id']);
+			$this->url->redirect('page/introduction');
 		}
 	}
 
