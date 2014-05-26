@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0166ab8e0ee00ee155ec5659cb272703",
+    "hash": "10805f6f49ae37e26df6e661f67aeb31",
     "packages": [
         {
             "name": "mcsodbrenner/serpent",
@@ -97,12 +97,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MINISTRYGmbH/morrow-core.git",
-                "reference": "65e4083dceec0b85b47983bfb18eb7f11548e3c8"
+                "reference": "c275feab51983653b0e2fa99c81f7c67dec22bce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/65e4083dceec0b85b47983bfb18eb7f11548e3c8",
-                "reference": "65e4083dceec0b85b47983bfb18eb7f11548e3c8",
+                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/c275feab51983653b0e2fa99c81f7c67dec22bce",
+                "reference": "c275feab51983653b0e2fa99c81f7c67dec22bce",
                 "shasum": ""
             },
             "require": {
@@ -112,8 +112,12 @@
             },
             "type": "library",
             "autoload": {
+                "psr-0": {
+                    "": "app/libraries/"
+                },
                 "psr-4": {
-                    "Morrow\\": "src/"
+                    "Morrow\\": "src/",
+                    "App\\Models\\": "app/models/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -125,7 +129,7 @@
                 "framework",
                 "php"
             ],
-            "time": "2014-05-26 17:32:27"
+            "time": "2014-05-26 17:49:28"
         },
         {
             "name": "phpmailer/phpmailer",
