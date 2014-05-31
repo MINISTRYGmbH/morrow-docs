@@ -21,7 +21,7 @@ class DefaultController extends Factory {
 
 		$this->view->setContent('show_protected_and_private', $this->session->get('show_protected_and_private', ''));
 
-		$morrow_root = realpath('../vendor') . '/morrow/core/';
+		$morrow_root = VENDOR_PATH . 'morrow/core/';
 
 		// get all classes
 		$classes = $this->_scandir_recursive($morrow_root . 'src/');
