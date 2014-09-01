@@ -6,7 +6,7 @@ return array(
 // routing rules
 	'routing'					=> array(
 		''						=> 'home',
-		'class/(?P<path>.+)'	=> 'class',
+		'object/(?P<path>.+)'	=> 'object',
 		'page/(?P<id>.+)'		=> 'page',
 	),
 );

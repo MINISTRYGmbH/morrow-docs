@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace app;
 use Morrow\Factory;
 use Morrow\Debug;
 
-class PageController extends DefaultController {
+class Object extends _Default {
 	public function run() {
 		$class = '\\' . str_replace('/', '\\', $this->input->get('routed.path'));
 		$class = new \Docblock($class);

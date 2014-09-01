@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace app;
 use Morrow\Factory;
 use Morrow\Debug;
 
-class DefaultController extends Factory {
+class _Default extends Factory {
 	public function setup() {
 		$this->view->setHandler('serpent');
 
@@ -39,7 +39,7 @@ class DefaultController extends Factory {
 		$this->view->setContent('classes', $new_classes);
 
 		// redirect to the first page
-		if (!in_array($this->page->get('alias'), array('page', 'class'))) {
+		if (!in_array($this->page->get('alias'), array('page', 'object'))) {
 			$this->url->redirect('page/introduction');
 		}
 	}
@@ -56,7 +56,7 @@ class DefaultController extends Factory {
 
 		// auto link classes
 		$content = preg_replace_callback('|(\\\\[A-Z][\\\\A-Za-z0-9]+)|s', function($match){
-			$url = Factory::load('Url')->create('class/');
+			$url = Factory::load('Url')->create('object/');
 			$url .= str_replace('\\', '/', $match[0]);
 
 			return '<a href="'.$url.'">'.$match[0].'</a>';

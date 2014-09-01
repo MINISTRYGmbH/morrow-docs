@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace app;
 use Morrow\Factory;
 use Morrow\Debug;
 
-class PageController extends DefaultController {
+class Page extends _Default {
 	public function run() {
 		$docs_root		= realpath('../vendor') . '/morrow/core/docs/';
 		$id				= $this->input->get('routed.id');

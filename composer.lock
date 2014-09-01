@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "10805f6f49ae37e26df6e661f67aeb31",
+    "hash": "3b193a2e6ce4a22eeb9a03e7ecfb3d85",
     "packages": [
         {
             "name": "mcsodbrenner/serpent",
@@ -97,27 +98,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MINISTRYGmbH/morrow-core.git",
-                "reference": "c275feab51983653b0e2fa99c81f7c67dec22bce"
+                "reference": "c0db9d34e8a84d0bf5816474cbfeaaedf44d498b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/c275feab51983653b0e2fa99c81f7c67dec22bce",
-                "reference": "c275feab51983653b0e2fa99c81f7c67dec22bce",
+                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/c0db9d34e8a84d0bf5816474cbfeaaedf44d498b",
+                "reference": "c0db9d34e8a84d0bf5816474cbfeaaedf44d498b",
                 "shasum": ""
             },
             "require": {
                 "mcsodbrenner/serpent": "2.0.*",
-                "php": ">=5.3.0",
+                "php": ">=5.3.8",
                 "phpmailer/phpmailer": "5.2.*"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "": "app/libraries/"
-                },
                 "psr-4": {
-                    "Morrow\\": "src/",
-                    "App\\Models\\": "app/models/"
+                    "Morrow\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -129,7 +126,7 @@
                 "framework",
                 "php"
             ],
-            "time": "2014-05-26 17:49:28"
+            "time": "2014-09-01 09:27:34"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -195,6 +192,7 @@
     "stability-flags": {
         "morrow/core": 20
     },
+    "prefer-stable": false,
     "platform": {
         "php": ">=5.3"
     },

@@ -1,19 +1,14 @@
 <?php
 
-namespace Morrow;
-
-// define paths
-define('PUBLIC_PATH', realpath(__DIR__) . '/');
-define('PUBLIC_STORAGE_PATH', realpath(__DIR__ . '/storage') . '/');
-define('APP_PATH', realpath(__DIR__ . '/../app') . '/');
-define('STORAGE_PATH', realpath(__DIR__ . '/../app/storage') . '/');
-
-// define the path to vendor dir
-// change this if you have to projects which should use the same vendor folder
-define('VENDOR_PATH', realpath(__DIR__ . '/../vendor') . '/');
+// $start_time = microtime(true);
 
 // register the Composer autoloader
-require VENDOR_PATH . 'autoload.php';
+require '../vendor/autoload.php';
 
 // execute Morrow framework
-new Core\Frontcontroller();
+new Morrow\Core\Bootstrap();
+
+// $end_time = microtime(true);
+// echo 'Time: ' . round($end_time - $start_time, 2) . '<br />';
+// echo 'Memory: ' . round(memory_get_usage()/1024) . ' kb<br />';
+// echo 'Memory Peak: ' . round(memory_get_peak_usage()/1024) . ' kb<br />';
