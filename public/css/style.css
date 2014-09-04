@@ -15,3 +15,5 @@ pre { line-height: 16px; }
 .panel ul li { list-style-type: none; }
 .panel ul li.active > a { background-color: #eee; font-weight: bold; }
 .panel p { margin: 0; }
+
+pre[class*=language-]>code[data-language] { display: inline; max-height: none; overflow: auto; }

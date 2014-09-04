@@ -68,7 +68,8 @@
 
 	/* Only show functions if there are public ones */
 	<?php
-	$public_methods_available = false;
+	$public_methods_available	= false;
+	$show_methods				= false;
 	foreach ($class.methods as $method) {
 		if (:raw($method['visibility']) == 'public' || :raw($show_protected_and_private)) $show_methods = true;
 	}

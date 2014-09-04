@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3b193a2e6ce4a22eeb9a03e7ecfb3d85",
+    "hash": "1df98d298dab8df7d6dcff4407a67912",
     "packages": [
         {
             "name": "mcsodbrenner/serpent",
@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MINISTRYGmbH/morrow-core.git",
-                "reference": "c0db9d34e8a84d0bf5816474cbfeaaedf44d498b"
+                "reference": "d9978bce8c6c3e7a900419abf17b22bed7257953"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/c0db9d34e8a84d0bf5816474cbfeaaedf44d498b",
-                "reference": "c0db9d34e8a84d0bf5816474cbfeaaedf44d498b",
+                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/d9978bce8c6c3e7a900419abf17b22bed7257953",
+                "reference": "d9978bce8c6c3e7a900419abf17b22bed7257953",
                 "shasum": ""
             },
             "require": {
@@ -126,7 +126,7 @@
                 "framework",
                 "php"
             ],
-            "time": "2014-09-01 09:27:34"
+            "time": "2014-09-01 15:16:13"
         },
         {
             "name": "phpmailer/phpmailer",

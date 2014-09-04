@@ -5,12 +5,13 @@ use Morrow\Factory;
 use Morrow\Debug;
 
 class _Default extends Factory {
-	public function setup() {
-		$this->view->setHandler('serpent');
+	public function __construct() {
+		// the path to the morrow framework
+		$this->_core_path = PUBLIC_PATH . '../../main/vendor/morrow/core/';
 
 		// add markdown mapping
 		$this->view->setProperty('mappings', array(
-			'markdown' => '\\App\\DefaultController::markdown',
+			'markdown' => '\\app\\_Default::markdown',
 		));
 
 		// toggle enduser view and developer view
@@ -21,10 +22,8 @@ class _Default extends Factory {
 
 		$this->view->setContent('show_protected_and_private', $this->session->get('show_protected_and_private', ''));
 
-		$morrow_root = realpath('../vendor') . '/morrow/core/';
-
 		// get all classes
-		$classes = $this->_scandir_recursive($morrow_root . 'src/');
+		$classes = $this->_scandir_recursive($this->_core_path . 'src/');
 
 		// strip non php files and create relative paths
 		$new_classes = array();

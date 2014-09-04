@@ -13,7 +13,8 @@
             "": "app/libraries/"
         },
         "psr-4": {
-            "app\\": "app/"
+            "app\\": "app/",
+            "Morrow\\": "../main/vendor/morrow/core/src/"
         }
     }
 }
