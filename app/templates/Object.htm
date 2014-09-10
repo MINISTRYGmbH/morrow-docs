@@ -48,7 +48,13 @@
 							<small><span class="label label-default">Hidden</span></small>
 						~endif~
 					</td>
-					<td><span class="type">~~:escape($member.tags.var.0.type)~</span></td>
+					<td>
+						~if (isset($member.tags.var)):~
+							<span class="type">~~:escape($member.tags.var.0.type)~</span>
+						~else:~
+							<span></span>
+						~endif~
+					</td>
 					<td>
 						<code>
 							$~~:escape($member.name)~

@@ -5,6 +5,8 @@ h2 { margin: 40px 0 10px 0; }
 #table_members p { margin: 0; }
 
 .function-wrapper { cursor: pointer; }
+.function-wrapper::before { content: "▶"; width: 17px; float: left; color: #999; }
+.function-wrapper.is-unfolded::before { content: "▼"; }
 .function-wrapper h4 code { font-size: 80%; vertical-align: middle; font-weight: normal; }
 .function-wrapper h4 .label { vertical-align: middle; }
 .function-wrapper h4:hover { color: #005580; }

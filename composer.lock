@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MINISTRYGmbH/morrow-core.git",
-                "reference": "d9978bce8c6c3e7a900419abf17b22bed7257953"
+                "reference": "292e3dc7ffd2a42725b532d12c89825ff9ab2302"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/d9978bce8c6c3e7a900419abf17b22bed7257953",
-                "reference": "d9978bce8c6c3e7a900419abf17b22bed7257953",
+                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/292e3dc7ffd2a42725b532d12c89825ff9ab2302",
+                "reference": "292e3dc7ffd2a42725b532d12c89825ff9ab2302",
                 "shasum": ""
             },
             "require": {
@@ -126,7 +126,7 @@
                 "framework",
                 "php"
             ],
-            "time": "2014-09-01 15:16:13"
+            "time": "2014-09-05 11:45:31"
         },
         {
             "name": "phpmailer/phpmailer",
