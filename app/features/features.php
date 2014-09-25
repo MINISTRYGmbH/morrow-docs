@@ -1,12 +1,18 @@
 <?php
 
-return array(
-	'~^(object|page)~i' => array(
-		'#content' => array(
-			array('append' => '\\app\\features\\Disqus\\Discussion'),
-		),
-		'' => array(
-			array('append' => '\\app\\features\\Minifier\\HTML'),
-		),
-	),
-);
+$features = [
+	'~^(object|page)~i' => [
+		'#content' => [
+			['action' => 'append', 'class' => '\\app\\features\\Disqus\\Discussion'],
+		],
+		'html' => [
+			['action' => 'append', 'class' => '\\app\\features\\Minifier\\HTML'],
+		],
+	],
+];
+
+foreach ($features as $regex => $feature) {
+	// ... modify here
+}
+
+return $features;
