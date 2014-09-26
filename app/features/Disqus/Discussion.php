@@ -6,9 +6,9 @@ use Morrow\Debug;
 
 class Discussion extends _Default {
 	public function run($dom) {
-		$config	= $this->config->get('app.features.disqus');
+		$config	= Factory::load('Config:feature')->get();
 		
-		$view = Factory::load('View:view-feature');
+		$view = Factory::load('View:feature');
 		$view->setContent('config', $config);
 	}
 }

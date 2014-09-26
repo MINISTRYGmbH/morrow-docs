@@ -1,5 +1,5 @@
 <?php
 
 return array(
-	'disqus_shortname' => 'm3framework',
+	'disqus_shortname' => 'ENTER YOUR SHORTNAME',
 );
