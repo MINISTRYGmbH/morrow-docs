@@ -19,3 +19,4 @@ pre { line-height: 16px; }
 .panel p { margin: 0; }
 
 pre[class*=language-]>code[data-language] { display: inline; max-height: none; overflow: auto; }
+.language-php .token.comment { background: #ddd; color: #000; text-shadow: none; }

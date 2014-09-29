@@ -5,8 +5,8 @@ $features = [
 		'#content' => [
 			['action' => 'append', 'class' => '\\app\\features\\Disqus\\Discussion', 'config' => ['disqus_shortname' => 'm3framework']],
 		],
-		'html' => [
-			//['action' => 'append', 'class' => '\\app\\features\\Minifier\\HTML'],
+		'' => [
+			['action' => 'append', 'class' => '\\app\\features\\Minifier\\HTML'],
 		],
 	],
 ];
