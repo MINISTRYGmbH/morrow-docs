@@ -7,8 +7,6 @@ use Morrow\Debug;
 class _Default extends Factory {
 	public function __construct() {
 		// the path to the morrow framework
-		// $this->_core_path		= PUBLIC_PATH . '../../main/vendor/morrow/core/';
-		// $this->_feature_path	= $this->_core_path . '../../../app/features/';
 		$this->_core_path		= VENDOR_PATH . 'morrow/core/';
 		$this->_feature_path	= $this->_core_path . '../../../app/features/';
 
