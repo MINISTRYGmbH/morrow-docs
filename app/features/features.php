@@ -1,9 +1,10 @@
 <?php
 
 $features = [
-	'~^(object|page)~i' => [
+	'~^(object|page|feature)~i' => [
 		'#content' => [
 			['action' => 'append', 'class' => '\\app\\features\\Disqus\\Discussion', 'config' => ['disqus_shortname' => 'm3framework']],
+			//['action' => 'prepend', 'class' => '\\app\\features\\Time\\Simple', 'config' => ['format' => '%y-%m-%d']],
 		],
 		'' => [
 			['action' => 'append', 'class' => '\\app\\features\\Minifier\\HTML'],

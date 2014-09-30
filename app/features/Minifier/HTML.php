@@ -35,10 +35,6 @@ class HTML extends _Default {
 			 
 			$content = preg_replace($regex, " ", $content);
 
-			// remove comments (but not conditional)
-			//$content = preg_replace('/<!--(?!\[if).*?-->/', '', $content);
-			$content = preg_replace('/(<head.*)<!--(?!\[if).*?-->/', '$1', $content);
-
 			// remote quotes around attributes
 			$content = preg_replace('/([a-z0-9-_])="([^ =]+?)"/i', '$1=$2', $content);
 
