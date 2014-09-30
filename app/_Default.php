@@ -7,7 +7,10 @@ use Morrow\Debug;
 class _Default extends Factory {
 	public function __construct() {
 		// the path to the morrow framework
-		$this->_core_path = PUBLIC_PATH . '../../main/vendor/morrow/core/';
+		// $this->_core_path		= PUBLIC_PATH . '../../main/vendor/morrow/core/';
+		// $this->_feature_path	= $this->_core_path . '../../../app/features/';
+		$this->_core_path		= VENDOR_PATH . 'morrow/core/';
+		$this->_feature_path	= $this->_core_path . '../../../app/features/';
 
 		// add markdown mapping
 		$this->view->setProperty('mappings', array(
@@ -37,8 +40,17 @@ class _Default extends Factory {
 
 		$this->view->setContent('classes', $new_classes);
 
+		// get added features
+		$features		= array();
+
+		foreach (scandir($this->_feature_path) as $file) {
+			if ($file{0} === '.') continue;
+			if (is_dir($this->_feature_path . $file)) $features[] = $file;
+		}
+		$this->view->setContent('features', $features);
+
 		// redirect to the first page
-		if (!in_array($this->page->get('alias'), array('page', 'object'))) {
+		if (!in_array($this->page->get('alias'), array('page', 'object', 'feature'))) {
 			$this->url->redirect('page/introduction');
 		}
 	}

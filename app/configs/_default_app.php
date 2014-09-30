@@ -8,5 +8,6 @@ return array(
 		''						=> 'home',
 		'object/(?P<path>.+)'	=> 'object',
 		'page/(?P<id>.+)'		=> 'page',
+		'feature/(?P<name>.+)'	=> 'feature',
 	),
 );

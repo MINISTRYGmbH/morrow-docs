@@ -1,19 +1,10 @@
 <!doctype html>
 
-<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
-<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
-<!--[if IE 8]>     <html class="ie ie8 lte9 lte8">      <![endif]-->
-<!--[if IE 9]>     <html class="ie ie9 lte9">           <![endif]-->
-<!--[if gt IE 9]>  <html class="ie">                    <![endif]-->
-<!--[if !IE]><!--> <html>                               <!--<![endif]-->
+<html>
 <head>
 	<base href="~~:raw($page.base_href)~" />
 	<meta charset="~~:raw($page.charset)~" />
-	<link rel="shortcut icon" href="/favicon.ico">
 
-	<meta name="viewport" content="width=device-width" />
-	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-	
 	<title>Morrow PHP Framework</title>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css" />
@@ -51,6 +42,17 @@
 					<?php
 					echo :markdown(file_get_contents('../vendor/morrow/core/docs/sidebar.md'));
 					?>
+
+					~if (!empty($features)):~
+						Added features
+
+						<ul>
+						~foreach ($features as $feature):~
+							<li><a href="feature/~~:escape($feature)~">~~:escape($feature)~</a></li>
+						~endforeach~
+						</ul>
+					~endif~
+
 				</div>
 			</div>
 
