@@ -2,9 +2,10 @@ Time
 =====
 
 This is just an example feature you can use to get a feeling for the construction of features.
-It display just a clock.
+It just displays a clock.
+And only on this page you will see that clock on the right side of this paragraph.
 
-You will find it in the folder `app/features/`.
+You will find its code in the folder `app/features/`.
 
 
 Available Feature Controllers
@@ -17,7 +18,7 @@ Configuration
 
 Type   | Keyname                | Default    | Description                                                              
 -----  | ---------              | ---------  | ------------                                                             
-string | `format`     | `%x %X`     | Sets the display format
+boolean | `seconds`     | `false`     | Should seconds be shown or not.
 
 
 Example
@@ -28,12 +29,12 @@ Example
 
 $features = [
 	'~^.*~i' => [
-		'#content' => [
+		'#content p:first-child' => [
 			[
 				'action' => 'append',
 				'class' => '\\app\\features\\Time\\Simple',
 				'config' => [
-					'format' => '%y-%m-%d'
+					'seconds' => true
 				]
 			],
 		],
