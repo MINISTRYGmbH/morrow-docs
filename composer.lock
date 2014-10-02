@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MINISTRYGmbH/morrow-core.git",
-                "reference": "25e1997aaea30bc35eb4535e198b5b331031901c"
+                "reference": "77d5a4cd7886b0205a1e071bba7f49ec4a893f80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/25e1997aaea30bc35eb4535e198b5b331031901c",
-                "reference": "25e1997aaea30bc35eb4535e198b5b331031901c",
+                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/77d5a4cd7886b0205a1e071bba7f49ec4a893f80",
+                "reference": "77d5a4cd7886b0205a1e071bba7f49ec4a893f80",
                 "shasum": ""
             },
             "require": {
@@ -126,7 +126,7 @@
                 "framework",
                 "php"
             ],
-            "time": "2014-09-29 15:19:06"
+            "time": "2014-09-30 15:46:10"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -134,12 +134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "b56c9b684923153112e5b72d23182b469aa44070"
+                "reference": "73b61679809615850706f1dbf88e6df2ddc05745"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/b56c9b684923153112e5b72d23182b469aa44070",
-                "reference": "b56c9b684923153112e5b72d23182b469aa44070",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/73b61679809615850706f1dbf88e6df2ddc05745",
+                "reference": "73b61679809615850706f1dbf88e6df2ddc05745",
                 "shasum": ""
             },
             "require": {
@@ -179,7 +179,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2014-09-25 16:36:22"
+            "time": "2014-09-26 18:33:30"
         }
     ],
     "packages-dev": [
