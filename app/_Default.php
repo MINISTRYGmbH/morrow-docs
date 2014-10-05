@@ -48,7 +48,7 @@ class _Default extends Factory {
 		$this->view->setContent('features', $features);
 
 		// redirect to the first page
-		if (!in_array($this->page->get('alias'), array('page', 'object', 'feature'))) {
+		if (!in_array($this->page->get('routed.alias'), array('page', 'object', 'feature'))) {
 			$this->url->redirect('page/introduction');
 		}
 	}

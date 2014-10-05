@@ -42,19 +42,21 @@
 					<?php
 					echo :markdown(file_get_contents('../vendor/morrow/core/docs/sidebar.md'));
 					?>
+				</div>
+			</div>
 
-					~if (!empty($features)):~
-						Added features
-
+			~if (!empty($features)):~
+				<div class="panel panel-default">
+					<div class="panel-heading">Added Features</div>
+					<div class="panel-body">
 						<ul>
 						~foreach ($features as $feature):~
 							<li><a href="feature/~~:escape($feature)~">~~:escape($feature)~</a></li>
 						~endforeach~
 						</ul>
-					~endif~
-
+					</div>
 				</div>
-			</div>
+			~endif~
 
 			<div class="panel panel-default">
 				<div class="panel-heading">Classes</div>

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3b193a2e6ce4a22eeb9a03e7ecfb3d85",
+    "hash": "6e2ab274ecde8c6838eb530ef445aebe",
     "packages": [
         {
             "name": "mcsodbrenner/serpent",
@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MINISTRYGmbH/morrow-core.git",
-                "reference": "77d5a4cd7886b0205a1e071bba7f49ec4a893f80"
+                "reference": "21ee8c5d8451ee8630974520c641c89a3a42713e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/77d5a4cd7886b0205a1e071bba7f49ec4a893f80",
-                "reference": "77d5a4cd7886b0205a1e071bba7f49ec4a893f80",
+                "url": "https://api.github.com/repos/MINISTRYGmbH/morrow-core/zipball/21ee8c5d8451ee8630974520c641c89a3a42713e",
+                "reference": "21ee8c5d8451ee8630974520c641c89a3a42713e",
                 "shasum": ""
             },
             "require": {
@@ -126,7 +126,7 @@
                 "framework",
                 "php"
             ],
-            "time": "2014-09-30 15:46:10"
+            "time": "2014-10-02 10:00:34"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -182,21 +182,15 @@
             "time": "2014-09-26 18:33:30"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "morrow/core": 20
     },
     "prefer-stable": false,
     "platform": {
-        "php": ">=5.3"
+        "php": ">=5.4"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }
