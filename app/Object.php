@@ -9,5 +9,7 @@ class Object extends _Default {
 		$class = '\\' . str_replace('/', '\\', $this->input->get('routed.path'));
 		$class = new \Docblock($class);
 		$this->view->setContent('class', $class->get());
+		
+		return $this->view;
 	}
 }

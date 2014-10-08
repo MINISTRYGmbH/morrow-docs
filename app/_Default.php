@@ -6,14 +6,16 @@ use Morrow\Debug;
 
 class _Default extends Factory {
 	public function __construct() {
+		$this->view = Factory::load('Views\Serpent');
+
 		// the path to the morrow framework
 		$this->_core_path		= VENDOR_PATH . 'morrow/core/';
 		$this->_feature_path	= $this->_core_path . '../../../app/features/';
 
 		// add markdown mapping
-		$this->view->setProperty('mappings', array(
+		$this->view->mappings = array(
 			'markdown' => '\\app\\_Default::markdown',
-		));
+		);
 
 		// toggle enduser view and developer view
 		$spap = $this->input->get('show_protected_and_private');

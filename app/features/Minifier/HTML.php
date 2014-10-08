@@ -6,8 +6,6 @@ use Morrow\Debug;
 
 class HTML extends _Default {
 	public function run($dom) {
-		Factory::load('View:feature')->setHandler('plain');
-
 		Factory::load('Event')->on('core.after_view_creation', function($e, $handle){
 			rewind($handle);
 			$content = stream_get_contents($handle);
@@ -42,5 +40,7 @@ class HTML extends _Default {
 			fwrite($handle, $content);
 			return $handle;
 		});
+
+		return '';
 	}
 }

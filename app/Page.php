@@ -10,5 +10,7 @@ class Page extends _Default {
 		$id				= $this->input->get('routed.id');
 		$page_content	= file_get_contents($docs_root . $id . '.md');
 		$this->view->setContent('page_content', $page_content);
+
+		return $this->view;
 	}
 }

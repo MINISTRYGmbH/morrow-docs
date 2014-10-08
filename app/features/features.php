@@ -6,10 +6,10 @@ $features = [
 			['action' => 'append', 'class' => '\\app\\features\\Disqus\\Discussion', 'config' => ['disqus_shortname' => 'm3framework']],
 		],
 		'' => [
-			['action' => 'append', 'class' => '\\app\\features\\Minifier\\HTML'],
+			//['action' => 'append', 'class' => '\\app\\features\\Minifier\\HTML'],
 		],
 	],
-	'~^(feature/time)~i' => [
+	'~^(feature_time)~i' => [
 		'#content p:first-child' => [
 			['action' => 'prepend', 'class' => '\\app\\features\\Time\\Simple', 'config' => ['seconds' => true]],
 		],
