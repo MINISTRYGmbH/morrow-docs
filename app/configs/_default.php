@@ -41,6 +41,13 @@ return array(
 											$class = preg_replace('/[^a-z0-9_]/i', '', $class);
 											return '\app\\' . $class;
 										},
+	'router.template'				=>	function($class) {
+											$filename = trim($class, '\\');
+											$filename = preg_replace('~^app\\\\~', '', $filename);
+											$filename = preg_replace('~^features\\\\.+?\\\\~', '', $filename);
+											$filename = str_replace('\\', '_', $filename);
+											return $filename;
+										},
 	
 // security
 	'security.csp.default-src'		=> "'self'",
