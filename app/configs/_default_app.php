@@ -16,10 +16,11 @@ return array(
 	'security.content_type_options'	=> "nosniff",
 	
 // routing rules
-	'routing'					=> array(
-		''						=> 'home',
-		'object/(?P<path>.+)'	=> 'object',
-		'page/(?P<id>.+)'		=> 'page',
-		'feature/(?P<name>.+)'	=> 'feature',
+	'router.routes'					=> array(
+		'=^object/(?P<path>.+)$='	=> '\app\Object',
+		'=^page/(?P<id>.+)$='		=> '\app\Page',
+		'=^feature/(?P<name>.+)$='	=> '\app\Feature',
+		'=^changelog$='				=> '\app\Changelog',
 	),
+	'router.fallback'				=>	function($url) { return '\app\Error404'; },
 );

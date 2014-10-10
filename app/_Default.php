@@ -48,11 +48,6 @@ class _Default extends Factory {
 			if (is_dir($this->_feature_path . $file)) $features[] = $file;
 		}
 		$this->view->setContent('features', $features);
-
-		// redirect to the first page
-		if (!in_array($this->page->get('routed.alias'), array('page', 'object', 'feature'))) {
-			$this->url->redirect('page/introduction');
-		}
 	}
 
 	// edit rendered markdown blocks

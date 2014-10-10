@@ -32,9 +32,15 @@ return array(
 	'locale.timezone'				=> 'Europe/Berlin',
 	
 // routing rules
-	'routing'						=> array(
-		''							=> 'home',
+	'router.routes'					=> array(
+		'=^$='						=> '\app\Home',
 	),
+	'router.fallback'				=>	function($url) {
+											$class = str_replace('/', '_', $url);
+											$class = ucfirst($class);
+											$class = preg_replace('/[^a-z0-9_]/i', '', $class);
+											return '\app\\' . $class;
+										},
 	
 // security
 	'security.csp.default-src'		=> "'self'",

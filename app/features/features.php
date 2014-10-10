@@ -1,15 +1,15 @@
 <?php
 
 $features = [
-	'~^(object|page|feature)~i' => [
+	'~^.+~i' => [
 		'#content' => [
 			['action' => 'append', 'class' => '\\app\\features\\Disqus\\Discussion', 'config' => ['disqus_shortname' => 'm3framework']],
 		],
 		'' => [
-			//['action' => 'append', 'class' => '\\app\\features\\Minifier\\HTML'],
+			['action' => 'append', 'class' => '\\app\\features\\Minifier\\HTML'],
 		],
 	],
-	'~^(feature_time)~i' => [
+	'~^(feature/time)~i' => [
 		'#content p:first-child' => [
 			['action' => 'prepend', 'class' => '\\app\\features\\Time\\Simple', 'config' => ['seconds' => true]],
 		],

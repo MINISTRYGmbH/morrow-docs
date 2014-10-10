@@ -8,7 +8,7 @@ class Discussion extends _Default {
 	public function run($dom) {
 		$config	= Factory::load('Config:feature')->get();
 		
-		$view = Factory::load('Views\Serpent:feature');
+		$view = Factory::load('Views\Serpent');
 		$view->setContent('config', $config);
 
 		return $view;
