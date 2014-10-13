@@ -18,9 +18,9 @@ class _Default extends Factory {
 
 		Factory::onload('Views\Serpent', function($instance){
 			// add markdown mapping
-			$instance->mappings = array(
+			$instance->mappings = [
 				'markdown' => '\\app\\_Default::markdown',
-			);
+			];
 	
 			// toggle enduser view and developer view
 			$instance->setContent('show_protected_and_private', $this->Session->get('show_protected_and_private', ''));
@@ -29,7 +29,7 @@ class _Default extends Factory {
 			$classes = $this->_scandir_recursive($this->_core_path . 'src/');
 
 			// strip non php files and create relative paths
-			$new_classes = array();
+			$new_classes = [];
 			foreach ($classes as $i=>$class) {
 				$temp		= preg_replace('|.+?src/(.+)\.php$|', 'Morrow/$1', $class);
 				$parts		= explode('/', $temp);
@@ -41,7 +41,7 @@ class _Default extends Factory {
 			$instance->setContent('classes', $new_classes);
 
 			// get added features
-			$features		= array();
+			$features		= [];
 
 			foreach (scandir($this->_feature_path) as $file) {
 				if ($file{0} === '.') continue;
@@ -78,8 +78,8 @@ class _Default extends Factory {
 
 	/* get all files recursive and sort folders to the end */
 	protected function _scandir_recursive($path) {
-		$returner	= array();
-		$folders	= array();
+		$returner	= [];
+		$folders	= [];
 		
 		foreach (scandir($path) as $file) {
 			if ($file{0} === '.') continue;

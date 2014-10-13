@@ -1,8 +1,8 @@
 <?php
 
-return array(
-	'main' => array(
+return [
+	'main' => [
 		'home'	=> 'Homepage',
 		'home/test'	=> 'Homepage',
-	),
-);
+	],
+];

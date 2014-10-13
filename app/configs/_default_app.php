@@ -2,7 +2,7 @@
 
 // If you want to modify defaults for your project (like routing rules), use this file.
 
-return array(
+return [
 // security
 	'security.csp.default-src'		=> "'self' *.disqus.com *.disquscdn.com cdnjs.cloudflare.com",
 	// 'security.csp.script-src'	=> "'self'",
@@ -16,11 +16,11 @@ return array(
 	'security.content_type_options'	=> "nosniff",
 	
 // routing rules
-	'router.routes'					=> array(
+	'router.routes'					=> [
 		'=^object/(?P<path>.+)$='	=> '\app\Object',
 		'=^page/(?P<id>.+)$='		=> '\app\Page',
 		'=^feature/(?P<name>.+)$='	=> '\app\Feature',
 		'=^changelog$='				=> '\app\Changelog',
-	),
+	],
 	'router.fallback'				=>	function($url) { return '\app\Error404'; },
-);
+];

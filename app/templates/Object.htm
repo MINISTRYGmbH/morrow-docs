@@ -43,7 +43,7 @@
 				~if (:raw($member.visibility) !== 'public' && !:raw($show_protected_and_private)) continue;~
 				<tr>
 					<td>
-						~:render('elements/visibility', array('visibility' => :raw($member.visibility)))~
+						~:render('elements/visibility', ['visibility' => :raw($member.visibility)])~
 						~if (isset($member.tags.hidden)):~
 							<small><span class="label label-default">Hidden</span></small>
 						~endif~
@@ -60,7 +60,7 @@
 							$~~:escape($member.name)~
 							<?php
 							if ($member.default) {
-								:render('elements/optional', array('default' => :raw($member.default)));
+								:render('elements/optional', ['default' => :raw($member.default)]);
 							}
 							?>
 						</code>
@@ -95,7 +95,7 @@
 			~if (:raw($method.visibility) !== 'public' && !:raw($show_protected_and_private)) continue;~
 			<div class="function-wrapper">
 				<h4>
-					~:render('elements/visibility', array('visibility' => :raw($method.visibility)))~
+					~:render('elements/visibility', ['visibility' => :raw($method.visibility)])~
 					
 					~if (isset($method.tags.hidden)):~
 						<small><span class="label label-default">Hidden</span></small>
@@ -106,13 +106,13 @@
 					<code>
 						~foreach ($method.parameters as $p):~
 							<?php
-							:render('elements/type', array('type' => :raw($p.type))) . ' ';
+							:render('elements/type', ['type' => :raw($p.type)]) . ' ';
 
 							if ($p.passedByReference) echo '&';
 							echo '$'.:escape($p.name);
 
 							if ($p.optional) {
-								:render('elements/optional', array('default' => :raw($p.default)));
+								:render('elements/optional', ['default' => :raw($p.default)]);
 							}
 
 							if ($p !== end($method.parameters)) {
@@ -142,7 +142,7 @@
 						<tbody>
 							~foreach ($method.parameters as $p):~
 								<tr>
-									<td>~:render('elements/type', array('type' => :raw($p.type)))~</td>
+									<td>~:render('elements/type', ['type' => :raw($p.type)])~</td>
 									<td><code>$~~:escape($p.name)~</code></td>
 									<td>~~:markdown(:raw($p.description))~</td>
 								</tr>
@@ -162,7 +162,7 @@
 						</colgroup>
 						<tbody>
 							<tr>
-								<td>~:render('elements/type', array('type' => :raw($method.tags.return.0.type)))~</td>
+								<td>~:render('elements/type', ['type' => :raw($method.tags.return.0.type)])~</td>
 								<td>
 									~if (isset($method.tags.return.0.description)):~
 										~~:markdown(:raw($method.tags.return.0.description))~

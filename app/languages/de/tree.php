@@ -1,7 +1,7 @@
 <?php
 
-return array(
-	'main' => array(
+return [
+	'main' => [
 		'home'	=> 'Startseite',
-	),
-);
+	],
+];

@@ -1,5 +1,5 @@
 <?php
 
-return array(
+return [
 	'disqus_shortname' => 'ENTER YOUR SHORTNAME',
-);
+];

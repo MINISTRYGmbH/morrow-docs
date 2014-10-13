@@ -6,7 +6,7 @@ elseif (is_null($default)) $default = 'null';
 elseif (is_int($default)) $default = $default;
 elseif (is_array($default)) {
 	$default = :escape($default);
-	$default = 'array('.implode(', ', $default).')';
+	$default = '['.implode(', ', $default).']';
 }
 
 echo ' = ' . $default;

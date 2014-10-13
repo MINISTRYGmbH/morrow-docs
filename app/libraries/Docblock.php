@@ -12,7 +12,7 @@ class Docblock {
 	public function get() {
 		$r = $this->_reflection;
 
-		$data = array(
+		$data = [
 			'namespace'	=> $r->getNamespaceName(),
 			'name'		=> $r->getShortname(),
 			'doc'		=> $this->parseDocComment($r->getDocComment()),
@@ -24,7 +24,7 @@ class Docblock {
 			'constants'	=> $this->getConstants(),
 			'members'	=> $this->getMembers(),
 			'methods'	=> $this->getMethods(),
-		);
+		];
 
 		return $data;
 	}
@@ -34,16 +34,16 @@ class Docblock {
 	}
 
 	public function getMembers() {
-		$members	= array();
+		$members	= [];
 
 		foreach ($this->_reflection->getProperties() as $p) {
 
-			$member = array(
+			$member = [
 				'name' => $p->getName(),
 				'visibility' => $p->isPublic() ? 'public' : ($p->isProtected() ? 'protected' : 'private'),
 				'static' => $p->isStatic(),
 				//'_r' => $p,
-			);
+			];
 
 			// parse doc comments
 			$doc = $this->parseDocComment($p->getDocComment());
@@ -66,7 +66,7 @@ class Docblock {
 	}
 
 	public function getMethods() {
-		$methods	= array();
+		$methods	= [];
 		$class		= $this->_reflection->getName();
 
 		foreach ($this->_reflection->getMethods() as $m) {
@@ -74,25 +74,25 @@ class Docblock {
 			if ($class !== $m->class) continue;
 
 			// get overall information
-			$method = array(
+			$method = [
 				'name'				=> $m->getName(),
 				'visibility'		=> $m->isPublic() ? 'public' : ($m->isProtected() ? 'protected' : 'private'),
 				'static'			=> $m->isStatic(),
 				'abstract'			=> $m->isAbstract(),
 				'final'				=> $m->isFinal(),
 				//'_r' => $m,
-			);
+			];
 
 			// get parameter information
-			$method['parameters'] = array();
+			$method['parameters'] = [];
 			
 			foreach ($m->getParameters() as $p) {
-				$parameter = array(
+				$parameter = [
 					'name'				=> $p->getName(),
 					'optional'			=> $p->isOptional(),
 					'default'			=> !$p->isOptional() ? null : $p->getDefaultValue(),
 					'passedByReference'	=> $p->isPassedByReference(),
-				);
+				];
 				$method['parameters'][$p->getName()] = $parameter;
 			}
 
@@ -142,12 +142,12 @@ class Docblock {
 		$parts		= explode("\n@", $string, 2);
 
 		$content	= $this->_parseContent($parts[0]);
-		$tags		= isset($parts[1]) ? $this->_parseTags('@' . $parts[1]) : array();
+		$tags		= isset($parts[1]) ? $this->_parseTags('@' . $parts[1]) : [];
 
-		$returner = array(
+		$returner = [
 			'content'	=> $content,
 			'tags'		=> $tags,
-		);
+		];
 
 		return $returner;
 	}
@@ -166,16 +166,16 @@ class Docblock {
 	}
 
 	protected function _parseTags($string) {
-		$returner = array();
+		$returner = [];
 
-		$patterns = array(
+		$patterns = [
 			'deprecated'	=> '@deprecated',
 			'ignore'		=> '@ignore',
 			'hidden'		=> '@hidden',
 			'param'			=> '@param\s+(?P<type>\S+)\s+(?P<variable>\S+)\s+(?P<description>.+)',
 			'return'		=> '@return\s+(?P<type>\S+)(\s+(?P<description>.+))?',
 			'var'			=> '@var\s+(?P<type>\S+)',
-		);
+		];
 
 		foreach ($patterns as $name=>$p) {
 			if (preg_match_all('|'.$p.'|', $string, $matches, PREG_SET_ORDER)) {
