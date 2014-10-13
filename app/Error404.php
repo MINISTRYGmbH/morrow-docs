@@ -6,8 +6,8 @@ use Morrow\Debug;
 
 class Error404 extends _Default {
 	public function run() {
-		$this->header->set('HTTP/1.0 404 Not Found');
+		$this->Header->set('HTTP/1.0 404 Not Found');
 
-		return $this->view;
+		return $this->Views_Serpent;
 	}
 }

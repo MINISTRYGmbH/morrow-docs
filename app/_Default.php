@@ -6,51 +6,52 @@ use Morrow\Debug;
 
 class _Default extends Factory {
 	public function __construct() {
-		$this->view = Factory::load('Views\Serpent');
-
 		// the path to the morrow framework
 		$this->_core_path		= VENDOR_PATH . 'morrow/core/';
 		$this->_feature_path	= $this->_core_path . '../../../app/features/';
 
-		// add markdown mapping
-		$this->view->mappings = array(
-			'markdown' => '\\app\\_Default::markdown',
-		);
-
 		// toggle enduser view and developer view
-		$spap = $this->input->get('show_protected_and_private');
+		$spap = $this->Input->get('show_protected_and_private');
 		if (isset($spap)) {
-			$this->session->set('show_protected_and_private', $spap);
+			$this->Session->set('show_protected_and_private', $spap);
 		}
 
-		$this->view->setContent('show_protected_and_private', $this->session->get('show_protected_and_private', ''));
+		Factory::onload('Views\Serpent', function($instance){
+			// add markdown mapping
+			$instance->mappings = array(
+				'markdown' => '\\app\\_Default::markdown',
+			);
+	
+			// toggle enduser view and developer view
+			$instance->setContent('show_protected_and_private', $this->Session->get('show_protected_and_private', ''));
 
-		// get all classes
-		$classes = $this->_scandir_recursive($this->_core_path . 'src/');
+			// get all classes
+			$classes = $this->_scandir_recursive($this->_core_path . 'src/');
 
-		// strip non php files and create relative paths
-		$new_classes = array();
-		foreach ($classes as $i=>$class) {
-			$temp		= preg_replace('|.+?src/(.+)\.php$|', 'Morrow/$1', $class);
-			$parts		= explode('/', $temp);
-			$basename	= array_pop($parts);
-			$dirname	= implode('/', $parts);
-			$new_classes[$dirname][] = $basename;
-		}
+			// strip non php files and create relative paths
+			$new_classes = array();
+			foreach ($classes as $i=>$class) {
+				$temp		= preg_replace('|.+?src/(.+)\.php$|', 'Morrow/$1', $class);
+				$parts		= explode('/', $temp);
+				$basename	= array_pop($parts);
+				$dirname	= implode('/', $parts);
+				$new_classes[$dirname][] = $basename;
+			}
 
-		$this->view->setContent('classes', $new_classes);
+			$instance->setContent('classes', $new_classes);
 
-		// get added features
-		$features		= array();
+			// get added features
+			$features		= array();
 
-		foreach (scandir($this->_feature_path) as $file) {
-			if ($file{0} === '.') continue;
-			if (is_dir($this->_feature_path . $file)) $features[] = $file;
-		}
-		$this->view->setContent('features', $features);
+			foreach (scandir($this->_feature_path) as $file) {
+				if ($file{0} === '.') continue;
+				if (is_dir($this->_feature_path . $file)) $features[] = $file;
+			}
+			$instance->setContent('features', $features);
+		});
 
-		if ($this->page->get('path.relative') === '') {
-			$this->url->redirect('page/introduction');
+		if ($this->Page->get('path.relative') === '') {
+			$this->Url->redirect('page/introduction');
 		}
 	}
 
