@@ -9,11 +9,10 @@ class Simple extends _Default {
 		$time		= new Models\Time;
 
 		$seconds	= Factory::load('Config:feature')->get('seconds');
-		$view		= Factory::load('Views\Serpent');
-		$view->setContent('seconds', $seconds);
+		$this->Views_Serpent->setContent('seconds', $seconds);
 
 		$dom->append('body', '<script src="features/Time/public/default.js" />');
 
-		return $view;
+		return $this->Views_Serpent;
 	}
 }

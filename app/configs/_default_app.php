@@ -16,11 +16,6 @@ return [
 	'security.content_type_options'	=> "nosniff",
 	
 // routing rules
-	'router.routes'					=> [
-		'=^object/(?P<path>.+)$='	=> '\app\Object',
-		'=^page/(?P<id>.+)$='		=> '\app\Page',
-		'=^feature/(?P<name>.+)$='	=> '\app\Feature',
-		'=^changelog$='				=> '\app\Changelog',
-	],
-	'router.fallback'				=>	function($url) { return '\app\Error404'; },
+	'router.routes'					=> [],
+	'router.fallback'				=>	function($url) { return '\app\Home'; },
 ];

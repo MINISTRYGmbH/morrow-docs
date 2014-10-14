@@ -1,13 +1,13 @@
 <?php
 
-namespace app;
+namespace app\features\Pages;
 use Morrow\Factory;
 use Morrow\Debug;
 
-class Page extends _Default {
-	public function run() {
+class Detail extends _Default {
+	public function run($dom) {
 		$docs_root		= $this->_core_path . 'docs/';
-		$id				= $this->Input->get('routed.id');
+		$id				= $this->Page->get('nodes.1');
 		$page_content	= file_get_contents($docs_root . $id . '.md');
 		$this->Views_Serpent->setContent('page_content', $page_content);
 

@@ -23,25 +23,7 @@
 				</div>
 
 				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="~~:url('page/changelog')~">Changelog</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Views <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li ~if (!:raw($show_protected_and_private)):~class="active"~endif~>
-									<a href="~~:url(:raw($page.path.relative), ['show_protected_and_private' => ''])~" title="Shows only public members and methods">
-										Enduser view<br />
-										<small>Hides private and protected items</small>
-									</a>
-								</li>
-								<li ~if (:raw($show_protected_and_private)):~class="active"~endif~>
-									<a href="~~:url('', ['show_protected_and_private' => '1'])~" title="Shows all members and methods">
-										Developer view<br />
-										<small>Shows all items</small>
-									</a>
-								</li>
-							</ul>
-						</li>
+					<ul id="navbar-right" class="nav navbar-nav navbar-right">
 					</ul>
 				</div>
 
@@ -51,62 +33,10 @@
 	</div>
 
 	<div class="row">
-		<div class="col-lg-3">
-
-			<div class="panel panel-default">
-				<div class="panel-heading">Manual</div>
-				<div class="panel-body">
-					<?php
-					echo :markdown(file_get_contents('../vendor/morrow/core/docs/sidebar.md'));
-					?>
-				</div>
-			</div>
-
-			~if (!empty($features)):~
-				<div class="panel panel-default">
-					<div class="panel-heading">Added Features</div>
-					<div class="panel-body">
-						<ul>
-						~foreach ($features as $feature):~
-							<li><a href="feature/~~:escape($feature)~">~~:escape($feature)~</a></li>
-						~endforeach~
-						</ul>
-					</div>
-				</div>
-			~endif~
-
-			<div class="panel panel-default">
-				<div class="panel-heading">Classes</div>
-				<div class="panel-body">
-					<?php
-					function nested_navi($all_classes) {
-						$returner = '';
-						foreach ($all_classes as $namespace => $classes) {
-							$returner .= $namespace;
-							$returner .= '<ul>';
-
-							foreach ($classes as $class) {
-								$class		= strip_tags($class);
-								$full		= $namespace . '/' . $class;
-								$returner	.= '<li>';
-								$returner	.= '<a href="' . :url('object/' . $full) . '">' . $class . '</a>';
-								$returner	.= '</li>';
-							}
-							
-							$returner .= '</ul>';
-						}
-						return $returner;
-					}
-
-					echo nested_navi($classes);
-					?>
-				</div>
-			</div>
+		<div id="sidebar" class="col-lg-3">
 		</div>
 
 		<div id="content" class="col-lg-9">
-			~:block('body')~
-			~:endblock()~
 		</div>
 	</div>
 </div>

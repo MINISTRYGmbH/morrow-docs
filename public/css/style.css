@@ -2,21 +2,12 @@ body { padding: 20px 0 0 0; }
 h2 { margin: 40px 0 10px 0; }
 .navbar-brand { white-space: nowrap; }
 
-#table_members p { margin: 0; }
-
-.function-wrapper { cursor: pointer; }
-.function-wrapper::before { content: "▶"; width: 17px; float: left; color: #999; }
-.function-wrapper.is-unfolded::before { content: "▼"; }
-.function-wrapper h4 code { font-size: 80%; vertical-align: middle; font-weight: normal; }
-.function-wrapper h4 .label { vertical-align: middle; }
-.function-wrapper h4:hover { color: #005580; }
-.function-wrapper .type { color: #000; font-size: 80%;}
-pre { line-height: 16px; }
-
+/* for the navigation panels */
 .panel ul { padding: 0 0 0 20px; }
 .panel ul li { list-style-type: none; }
 .panel ul li.active > a { background-color: #eee; font-weight: bold; }
 .panel p { margin: 0; }
 
+/* for prism */
 pre[class*=language-]>code[data-language] { display: inline; max-height: none; overflow: auto; }
 .language-php .token.comment { background: #ddd; color: #000; text-shadow: none; }

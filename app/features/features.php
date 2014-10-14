@@ -1,17 +1,35 @@
 <?php
 
 $features = [
-	'~^.+~i' => [
+	'~^page/features$~i' => [
+		'#content' => [
+			['action' => 'prepend', 'class' => '\\app\\features\\Time\\Simple', 'config' => ['seconds' => true]],
+		],
+	],
+	'~^page/~i' => [
+		'#content' => [
+			['action' => 'append', 'class' => '\\app\\features\\Pages\\Detail'],
+		],
+	],
+	'~^class/~i' => [
+		'#content' => [
+			['action' => 'append', 'class' => '\\app\\features\\Classes\\Detail'],
+		],
+	],
+	'~.+~i' => [
+		'#sidebar' => [
+			['action' => 'append', 'class' => '\\app\\features\\Pages\\Navigation'],
+			['action' => 'append', 'class' => '\\app\\features\\Classes\\Navigation'],
+		],
+		'#navbar-right' => [
+			['action' => 'append', 'class' => '\\app\\features\\Pages\\Changelog'],
+			['action' => 'append', 'class' => '\\app\\features\\Classes\\Visibility'],
+		],
 		'#content' => [
 			['action' => 'append', 'class' => '\\app\\features\\Disqus\\Discussion', 'config' => ['disqus_shortname' => 'm3framework']],
 		],
 		'' => [
 			['action' => 'append', 'class' => '\\app\\features\\Minifier\\HTML'],
-		],
-	],
-	'~^(feature/time)~i' => [
-		'#content p:first-child' => [
-			['action' => 'prepend', 'class' => '\\app\\features\\Time\\Simple', 'config' => ['seconds' => true]],
 		],
 	],
 ];
