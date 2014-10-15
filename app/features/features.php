@@ -1,11 +1,6 @@
 <?php
 
 $features = [
-	'~^page/features$~i' => [
-		'#content' => [
-			['action' => 'prepend', 'class' => '\\app\\features\\Time\\Simple', 'config' => ['seconds' => true]],
-		],
-	],
 	'~^page/~i' => [
 		'#content' => [
 			['action' => 'append', 'class' => '\\app\\features\\Pages\\Detail'],
@@ -30,6 +25,11 @@ $features = [
 		],
 		'' => [
 			['action' => 'append', 'class' => '\\app\\features\\Minifier\\HTML'],
+		],
+	],
+	'~^page/features$~i' => [
+		'#content h2:nth-child(7)+p' => [
+			['action' => 'append', 'class' => '\\app\\features\\Time\\Simple', 'config' => ['seconds' => true]],
 		],
 	],
 ];

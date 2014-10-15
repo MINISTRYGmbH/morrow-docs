@@ -6,6 +6,7 @@ use Morrow\Factory;
 
 class Time extends Factory {
 	public function get() {
-		return time();
+		// Returns the current time in milliseconds
+		return (new \DateTime)->getTimestamp()*1000;
 	}
 }
