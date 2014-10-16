@@ -30,9 +30,6 @@ class Visibility extends _Default {
 			$dom->delete('xpath://h2[text()="Members"]');
 		}
 
-		// add specials styles for classes pages
-		$dom->append('head', '<link rel="stylesheet" href="features/Classes/public/style.css" />');
-
 		return $this->Views_Serpent;
 	}
 }
