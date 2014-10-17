@@ -21,6 +21,7 @@ $features = [
 			['action' => 'append', 'class' => '\\app\\features\\Classes\\Visibility'],
 		],
 		'#content' => [
+			['action' => 'append', 'class' => '\\app\\features\\Pages\\Error404', 'config' => ['if_does_not_exist' => '//*[@id="content"]/*']],
 			['action' => 'append', 'class' => '\\app\\features\\Disqus\\Discussion', 'config' => ['disqus_shortname' => 'm3framework']],
 		],
 		'' => [

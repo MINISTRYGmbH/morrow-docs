@@ -30,7 +30,7 @@ class _Default extends Factory {
 
 		// auto link classes
 		$content = preg_replace_callback('|(\\\\[A-Z][\\\\A-Za-z0-9]+)|s', function($match){
-			$url = Factory::load('Url')->create('object/');
+			$url = Factory::load('Url')->create('class/');
 			$url .= str_replace('\\', '/', $match[0]);
 
 			return '<a href="'.$url.'">'.$match[0].'</a>';

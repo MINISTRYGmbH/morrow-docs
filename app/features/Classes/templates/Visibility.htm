@@ -1,5 +1,5 @@
 <li class="dropdown">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Views <span class="caret"></span></a>
+	<a href="/" class="dropdown-toggle" data-toggle="dropdown">Views <span class="caret"></span></a>
 	<ul class="dropdown-menu" role="menu">
 		<li ~if (!:raw($show_protected_and_private)):~class="active"~endif~>
 			<a href="~~:url(:raw($page.path.relative), ['show_protected_and_private' => ''])~" title="Shows only public members and methods">

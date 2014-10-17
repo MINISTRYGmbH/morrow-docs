@@ -11,6 +11,8 @@ class Discussion extends _Default {
 		$view = Factory::load('Views\Serpent');
 		$view->setContent('config', $config);
 
+		$dom->append('body', '<script src="features/Disqus/public/feature_disqus.js"></script>');
+
 		return $view;
 	}
 }

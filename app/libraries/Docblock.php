@@ -111,7 +111,7 @@ class Docblock {
 				$name = substr($d['variable'], 1);
 
 				if (!isset($method['parameters'][$name])) {
-					throw new \Exception('Found parameter "'.$name.'" for method "'.$m->class.'::'.$m->getName().'" in DocBlock, but there is no parameter with that name.');
+					throw new \DomainException('Found parameter "'.$name.'" for method "'.$m->class.'::'.$m->getName().'" in DocBlock, but there is no parameter with that name.');
 				}
 
 				$method['parameters'][$name]['type']		= $d['type'];
