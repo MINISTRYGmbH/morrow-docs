@@ -1,14 +1,14 @@
 <li class="dropdown">
 	<a href="/" class="dropdown-toggle" data-toggle="dropdown">Views <span class="caret"></span></a>
 	<ul class="dropdown-menu" role="menu">
-		<li ~if (!:raw($show_protected_and_private)):~class="active"~endif~>
-			<a href="~~:url(:raw($page.path.relative), ['show_protected_and_private' => ''])~" title="Shows only public members and methods">
+		<li ~if (:raw($view) === 'enduser'):~class="active"~endif~>
+			<a href="~~:url(:raw($page.path.relative), ['view' => 'enduser'])~" title="Shows only public members and methods">
 				Enduser view<br />
 				<small>Hides private and protected items</small>
 			</a>
 		</li>
-		<li ~if (:raw($show_protected_and_private)):~class="active"~endif~>
-			<a href="~~:url('', ['show_protected_and_private' => '1'])~" title="Shows all members and methods">
+		<li ~if (:raw($view) === 'developer'):~class="active"~endif~>
+			<a href="~~:url('', ['view' => 'developer'])~" title="Shows all members and methods">
 				Developer view<br />
 				<small>Shows all items</small>
 			</a>
