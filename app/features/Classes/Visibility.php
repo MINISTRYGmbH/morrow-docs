@@ -6,19 +6,22 @@ use Morrow\Debug;
 
 class Visibility extends _Default {
 	public function run($dom) {
+		// init session value
+		if (!$this->Session->get('view')) {
+			$this->Session->set('view', 'enduser');
+		}
+
 		// toggle enduser view and developer view
-		$spap = $this->Input->get('show_protected_and_private');
-		if (isset($spap)) {
-			$this->Session->set('show_protected_and_private', $spap);
+		$view = $this->Input->get('view');
+		if (isset($view)) {
+			$this->Session->set('view', $view);
 		}
 	
-		$spap = $this->Session->get('show_protected_and_private');
-
-		// toggle enduser view and developer view
-		$this->Views_Serpent->setContent('show_protected_and_private', $spap);
+		$view = $this->Session->get('view');
+		$this->Views_Serpent->setContent('view', $view);
 
 		// remove protected/private members/methods
-		if (!$spap) {
+		if ($view === 'enduser') {
 			$dom->delete('tr.member_protected');
 			$dom->delete('tr.member_private');
 			$dom->delete('div.method_protected');
