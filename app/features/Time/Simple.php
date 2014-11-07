@@ -7,7 +7,7 @@ use Morrow\Debug;
 class Simple extends _Default {
 	public function run($dom) {
 		// get the current server time and pass it to the template
-		$time		= new Models\Time;
+		$time		= new models\Time;
 		$this->Views_Serpent->setContent('time', $time->get());
 		
 		// pass to the template if we want to put seconds or not
