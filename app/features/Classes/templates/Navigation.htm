@@ -1,27 +1,37 @@
-<div class="panel panel-default">
-	<div class="panel-heading">Classes</div>
-	<div class="panel-body">
-		<?php
-		function nested_navi($all_classes) {
-			$returner = '';
-			foreach ($all_classes as $namespace => $classes) {
-				$returner .= $namespace;
-				$returner .= '<ul>';
+<div class="panel-group accordion">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" href="#classes-accordion-panel-body">
+					Classes
+				</a>
+			</h4>
+		</div>
+		<div id="classes-accordion-panel-body">
+			<div class="panel-body">
+				<?php
+				function nested_navi($all_classes) {
+					$returner = '';
+					foreach ($all_classes as $namespace => $classes) {
+						$returner .= $namespace;
+						$returner .= '<ul>';
 
-				foreach ($classes as $class) {
-					$class		= strip_tags($class);
-					$full		= $namespace . '/' . $class;
-					$returner	.= '<li>';
-					$returner	.= '<a href="' . :url('class/' . $full) . '">' . $class . '</a>';
-					$returner	.= '</li>';
+						foreach ($classes as $class) {
+							$class		= strip_tags($class);
+							$full		= $namespace . '/' . $class;
+							$returner	.= '<li>';
+							$returner	.= '<a href="' . :url('class/' . $full) . '">' . $class . '</a>';
+							$returner	.= '</li>';
+						}
+						
+						$returner .= '</ul>';
+					}
+					return $returner;
 				}
-				
-				$returner .= '</ul>';
-			}
-			return $returner;
-		}
 
-		echo nested_navi($classes);
-		?>
+				echo nested_navi($classes);
+				?>
+			</div>
+		</div>
 	</div>
 </div>

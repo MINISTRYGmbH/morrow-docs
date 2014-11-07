@@ -6,6 +6,9 @@ use Morrow\Debug;
 
 class Navigation extends _Default {
 	public function run($dom) {
+		// append the javascript to the page
+		$dom->before('#collapse-plugin', '<script src="features/Classes/public/default.js" />');
+
 		$view = Factory::load('Views\Serpent');
 
 		// get all classes
