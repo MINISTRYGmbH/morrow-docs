@@ -1,65 +1,15 @@
 RewriteEngine on
 
-	# Rewrite "domain.com -> www.domain.com
-	# -----------------------------------------------------------------------------------------
-	# RewriteCond %{HTTPS} !=on
-	# RewriteCond %{HTTP_HOST} ^domain.com$
-	# RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
-
-	# Rewrite "www.domain.com -> domain.com
-	# -----------------------------------------------------------------------------------------
-	# RewriteCond %{HTTPS} !=on
-	# RewriteCond %{HTTP_HOST} ^www.domain.com$
-	# RewriteRule ^(.*)$ http://domain.com/$1 [R=301,L]
-
-	# force SSL for all files
-	# -----------------------------------------------------------------------------------------
-	# RewriteCond %{SERVER_PORT} !^443$
-	# RewriteCond %{HTTP_HOST} ^www.domain.com$
-	# RewriteRule (.*)  https://%{SERVER_NAME}%{REQUEST_URI} [L]
-
-	# Maintenance mode
-	# -----------------------------------------------------------------------------------------
-	# RewriteCond %{REMOTE_ADDR} !x.x.x.x
-	# RewriteRule !(maintenance\.htm|.+\.(gif|jpg|css)) /maintenance.htm [R]
+	# This htaccess is for redirecting to the public folder
+	# It is not used if the document root is pointing to the "public" folder.
+	# You should not need to do any changes here
 
 
-# Set rewrite base. The slash before $1 simulates a "RewriteBase /"
-# ---------------------------------------------------------------------------------------------
-RewriteBase /
-#RewriteCond %{REQUEST_URI} !/public/
-#RewriteCond %{HTTP_HOST} \.[a-z]{2,}$
-#RewriteRule ^(.*)$ /$1
+# Map feature public requests to the correct subfolder
+# ----------------------------------------
+RewriteRule features/(.+)/public/(.+) app/features/$1/public/$2 [L]
 
-
-# This section is for redirecting ALL requests to the public folder
-# ---------------------------------------------------------------------------------------------
-RewriteCond %{REQUEST_URI} !/public/
-RewriteRule ^(.*)$ public/$1 [L]
-
-
-# Map all non framework (eg. assets) requests to the public/ subfolder (also features)
-# ---------------------------------------------------------------------------------------------
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^features/(.+)/public/(.+) app/features/$1/public/$2
-
-
-# Map request to index.php if the file was not found
-# ---------------------------------------------------------------------------------------------
-# set rewrite base for development URLs (simple host names and IPs)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^public/([a-z0-9\-/]*)$ public/index.php?morrow_basehref_depth=1&morrow_path_info=$1 [QSA,NC]
-
-
-# Prevent directory listing
-# ---------------------------------------------------------------------------------------------
-Options -Indexes
-
-
-# Deflate static ressources
-# ---------------------------------------------------------------------------------------------
-<Ifmodule mod_deflate.c>
-	AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
-	AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
-	AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
-</IfModule>
+# Map all requests to the public subfolder
+# ----------------------------------------
+RewriteCond %{REQUEST_URI} !^public/
+RewriteRule ^(.*)$ public/$1?morrow_basehref_depth=1 [QSA]
