@@ -30,8 +30,9 @@ RewriteCond %{REQUEST_URI} !/public/
 RewriteRule ^(.*)$ public/$1 [L]
 
 # Set rewrite base. The slash before $1 simulates a "RewriteBase /"
-# RewriteCond %{HTTP_HOST} \.[a-z]{2,}$
-# RewriteRule ^(.*)$ /$1
+RewriteCond %{REQUEST_URI} !/public/
+RewriteCond %{HTTP_HOST} \.[a-z]{2,}$
+RewriteRule ^(.*)$ /$1
 
 
 # Map all non framework (eg. assets) requests to the public/ subfolder (also features)
