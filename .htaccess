@@ -48,7 +48,7 @@ RewriteRule ^features/(.+)/public/(.+) app/features/$1/public/$2
 # ---------------------------------------------------------------------------------------------
 # set rewrite base for development URLs (simple host names and IPs)
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^public/([a-z0-9\-/]*)$ public/index.php?morrow_path_info=$1 [QSA,NC]
+RewriteRule ^public/([a-z0-9\-/]*)$ public/index.php?morrow_basehref_depth=1&morrow_path_info=$1 [QSA,NC]
 
 
 # Prevent directory listing
