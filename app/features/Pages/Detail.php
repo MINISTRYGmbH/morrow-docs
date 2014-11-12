@@ -6,6 +6,11 @@ use Morrow\Debug;
 
 class Detail extends _Default {
 	public function run($dom) {
+		$view = new \Morrow\Views\Serpent;
+		$view->mappings = [
+			'markdown' => '\\app\\_Default::markdown',
+		];
+
 		$docs_root		= $this->_core_path . 'docs/';
 		$id				= $this->Page->get('nodes.1');
 		try {
@@ -13,8 +18,8 @@ class Detail extends _Default {
 		} catch (\Exception $e) {
 			$this->Url->redirect('404');
 		}
-		$this->Views_Serpent->setContent('page_content', $page_content);
+		$view->setContent('page_content', $page_content);
 
-		return $this->Views_Serpent;
+		return $view;
 	}
 }

@@ -6,7 +6,11 @@ use Morrow\Debug;
 
 class Detail extends _Default {
 	public function run($dom) {
-		$class = '\\' . implode('\\', array_slice($this->Page->get('nodes'), 1));
+		$view	= new \Morrow\Views\Serpent;
+		$view->mappings = [
+			'markdown' => '\\app\\_Default::markdown',
+		];
+		$class	= '\\' . implode('\\', array_slice($this->Page->get('nodes'), 1));
 		
 		try {
 			$path_to_class = $this->_core_path . 'src/' . implode('/', array_slice($this->Page->get('nodes'), 2)) . '.php';
@@ -17,7 +21,7 @@ class Detail extends _Default {
 				$this->Cache->save($class, $result, '+1 day', $hash);
 			}
 
-			$this->Views_Serpent->setContent('class', $result);
+			$view->setContent('class', $result);
 		} catch(\RunTimeException $e) {
 			// Redirect only if the class could not be found
 			$this->Url->redirect('404');
@@ -26,6 +30,6 @@ class Detail extends _Default {
 		// add specials styles for classes pages
 		$dom->append('head', '<link rel="stylesheet" href="features/Classes/public/style.css" />');
 
-		return $this->Views_Serpent;
+		return $view;
 	}
 }

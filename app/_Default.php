@@ -6,13 +6,6 @@ use Morrow\Debug;
 
 class _Default extends Factory {
 	public function __construct() {
-		Factory::onload('Views\Serpent', function($instance){
-			// add markdown mapping
-			$instance->mappings = [
-				'markdown' => '\\app\\_Default::markdown',
-			];
-		});
-
 		if ($this->Page->get('path.relative') === '') {
 			$this->Url->redirect('page/introduction');
 		}

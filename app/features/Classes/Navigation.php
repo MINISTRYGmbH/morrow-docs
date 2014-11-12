@@ -9,7 +9,7 @@ class Navigation extends _Default {
 		// append the javascript to the page
 		$dom->before('#collapse-plugin', '<script src="features/Classes/public/default.js" />');
 
-		$view = Factory::load('Views\Serpent');
+		$view = new \Morrow\Views\Serpent;
 
 		// get all classes
 		$classes = $this->_scandir_recursive($this->_core_path . 'src/');

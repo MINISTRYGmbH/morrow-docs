@@ -6,6 +6,8 @@ use Morrow\Debug;
 
 class Error404 extends _Default {
 	public function run($dom) {
+		$view = new \Morrow\Views\Serpent;
+
 		$marker		= Factory::load('Config:feature')->get('if_does_not_exist');
 		$is_content	= $dom->xpath->query($marker)->length;
 
@@ -16,6 +18,6 @@ class Error404 extends _Default {
 		}
 
 		$this->Header->set('HTTP/1.0 404 Not Found');
-		return $this->Views_Serpent;
+		return $view;
 	}
 }

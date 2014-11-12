@@ -6,6 +6,8 @@ use Morrow\Debug;
 
 class Visibility extends _Default {
 	public function run($dom) {
+		$view_handler = new \Morrow\Views\Serpent;
+
 		// init session value
 		if (!$this->Session->get('view')) {
 			$this->Session->set('view', 'enduser');
@@ -18,7 +20,7 @@ class Visibility extends _Default {
 		}
 	
 		$view = $this->Session->get('view');
-		$this->Views_Serpent->setContent('view', $view);
+		$view_handler->setContent('view', $view);
 
 		// remove protected/private members/methods
 		if ($view === 'enduser') {
@@ -33,6 +35,6 @@ class Visibility extends _Default {
 			$dom->delete('xpath://h2[text()="Members"]');
 		}
 
-		return $this->Views_Serpent;
+		return $view_handler;
 	}
 }
