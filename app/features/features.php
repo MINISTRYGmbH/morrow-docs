@@ -25,6 +25,9 @@ $features = [
 			['action' => 'append', 'class' => '\\app\\features\\Disqus\\Discussion', 'config' => ['disqus_shortname' => 'm3framework']],
 			['action' => 'append', 'class' => '\\app\\features\\Pages\\SEO'],
 		],
+		'body' => [
+			['action' => 'append', 'class' => '\\app\\features\\Tracking_GoogleAnalytics\\Snippet', 'config' => ['id' => 'UA-57282967-1']],
+		],
 	],
 	'~^page/features$~i' => [
 		'#content h2:nth-child(7)+p' => [
