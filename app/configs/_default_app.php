@@ -4,7 +4,7 @@
 
 return [
 // security
-	'security.csp.default-src'		=> "'self' *.disqus.com *.disquscdn.com cdnjs.cloudflare.com",
+	'security.csp.default-src'		=> "'self' *.disqus.com *.disquscdn.com cdnjs.cloudflare.com www.google-analytics.com",
 	// 'security.csp.script-src'	=> "'self'",
 	// 'security.csp.img-src'		=> "'self'",
 	'security.csp.style-src'		=> "'self' 'unsafe-inline' cdnjs.cloudflare.com",
@@ -15,7 +15,7 @@ return [
 	// 'security.csp.connect-src'	=> "'self'",
 	'security.frame_options'		=> "DENY", // (DENY|SAMEORIGIN|ALLOW-FROM uri)
 	'security.content_type_options'	=> "nosniff",
-	
+
 // routing rules
 	'router.routes'					=> [],
 	'router.fallback'				=>	function($url) { return '\app\Home'; },
