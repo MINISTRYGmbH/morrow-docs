@@ -22,7 +22,10 @@ class _Default extends Factory {
 		$content = preg_replace('|<pre><code class="([a-z]+?)">|s', '<pre><code class="language-$1">', $content);
 
 		// auto link classes
-		$content = preg_replace_callback('|(\\\\[A-Z][\\\\A-Za-z0-9]+)|s', function($match){
+		$content = preg_replace_callback('|(.\\\\[A-Z][\\\\A-Za-z0-9_]+)|s', function($match){
+			if($match[0]{0} === '\\'){
+				return substr($match[0], 1);
+			}
 			$url = Factory::load('Url')->create('class/');
 			$url .= str_replace('\\', '/', $match[0]);
 
