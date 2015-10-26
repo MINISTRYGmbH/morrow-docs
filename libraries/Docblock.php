@@ -85,7 +85,7 @@ class Docblock {
 
 			// get parameter information
 			$method['parameters'] = [];
-			
+
 			foreach ($m->getParameters() as $p) {
 				$parameter = [
 					'name'				=> $p->getName(),
@@ -104,7 +104,7 @@ class Docblock {
 			}
 			$doc = $this->parseDocComment($doc_comment);
 			$method = array_merge($method, $doc);
-			
+
 			// add docblock info to parameters
 			if (isset($doc['tags']['param']))
 			foreach ($doc['tags']['param'] as $d) {
@@ -133,7 +133,10 @@ class Docblock {
 
 		// find asterisk depth to content
 		preg_match('|^(\s*)\*(\s+)|', $string, $match);
-		$string = trim(preg_replace('~(\n|^)\s*'.preg_quote($match[1]) . '\*(' . preg_quote($match[2]).')?~', "\n", $string));
+
+		if(isset($match[1]) && isset($match[2])){
+			$string = trim(preg_replace('~(\n|^)\s*'.preg_quote($match[1]) . '\*(' . preg_quote($match[2]).')?~', "\n", $string));
+		}
 
 		// strip empty asterisk lines
 		$string = preg_replace("-\n\*(\s+|$)-", "\n", $string);

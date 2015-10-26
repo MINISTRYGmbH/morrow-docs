@@ -19,7 +19,5 @@ class SEO extends _Default {
 			$intro = trim($query->item(0)->nodeValue);
 			$dom->append('head', '<meta name="description" value="'.htmlspecialchars($intro, ENT_QUOTES, 'utf-8').'" />');
 		}
-
-		return '';
 	}
 }
